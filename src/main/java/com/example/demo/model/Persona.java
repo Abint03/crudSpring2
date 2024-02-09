@@ -15,16 +15,17 @@ public class Persona {
     private String apellido;
     private int edad;
     @OneToOne
-    //@JoinColumn(name="id_mascota",referencedColumnName = "id")
+    @JoinColumn(name="masc_id",referencedColumnName = "id")
     private Mascota masc;
 
     public Persona() {
     }
 
-    public Persona(long id, String nombre, String apellido, int edad) {
+    public Persona(long id, String nombre, String apellido, int edad, Mascota masc) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+        this.masc=masc;
     }
 }

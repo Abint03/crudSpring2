@@ -44,4 +44,10 @@ public class PersonaController {
         personService.deletePersona(id);
         return "La persona se ha eliminado con éxito!";
     }
+
+    @PutMapping("/personas/editar")
+    public Persona editarPersona(@RequestBody Persona per){
+        personService.editPersona(per);
+        return this.traerPersona(per.getId());
+    }
 }
