@@ -14,6 +14,9 @@ public class Persona {
     private String nombre;
     private String apellido;
     private int edad;
+    @OneToOne
+    //@JoinColumn(name="id_mascota",referencedColumnName = "id")
+    private Mascota masc;
 
     public Persona() {
     }
