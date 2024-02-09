@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter @Setter
 @Entity
 public class Persona {
@@ -14,18 +16,17 @@ public class Persona {
     private String nombre;
     private String apellido;
     private int edad;
-    @OneToOne
-    @JoinColumn(name="masc_id",referencedColumnName = "id")
-    private Mascota masc;
+    @OneToMany(mappedBy = "owner")
+    private List<Mascota> lista_masc;
 
     public Persona() {
     }
 
-    public Persona(long id, String nombre, String apellido, int edad, Mascota masc) {
+    public Persona(long id, String nombre, String apellido, int edad, List<Mascota> lista_masc) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.masc=masc;
+        this.lista_masc=lista_masc;
     }
 }

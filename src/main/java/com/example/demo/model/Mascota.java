@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,17 +9,19 @@ import lombok.Setter;
 public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long id_mascota;
     private String nombre;
     private String especie;
     private String raza;
     private String color;
 
+    @ManyToOne
+    private Persona owner;
     public Mascota() {
     }
 
     public Mascota(Long id, String nombre, String especie, String raza, String color) {
-        this.id = id;
+        this.id_mascota = id;
         this.nombre = nombre;
         this.especie = especie;
         this.raza = raza;

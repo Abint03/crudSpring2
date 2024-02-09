@@ -35,7 +35,7 @@ public class MascotaService implements IMascotaService{
     @Override
     public Mascota editMascota(Long idViejo, Long idNuevo, String nombre, String especie, String raza, String color) {
         Mascota m=this.findMascota(idViejo);
-        m.setId(idNuevo);
+        m.setId_mascota(idNuevo);
         m.setNombre(nombre);
         m.setEspecie(especie);
         m.setRaza(raza);
